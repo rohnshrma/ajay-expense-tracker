@@ -1,14 +1,27 @@
 import { useState } from "react";
 import "./App.css";
 import CreateArea from "./Components/CreateArea";
+
+import Expenses from "./Components/Expenses";
+
 function App() {
   const [notes, setNotes] = useState([]);
 
   const addNoteHandler = (noteObj) => {
     console.log("noteObject=>", noteObj);
 
-    setNotes((prevNotes) => {
-      return [noteObj, ...prevNotes];
+    setNotes((prevExpenses) => {
+      return [noteObj, ...prevExpenses];
+    });
+  };
+
+  const deleteNoteHandler = (id) => {
+    console.log("deleting expense with the id", id);
+
+    setNotes((prevExpenses) => {
+      return prevExpenses.filter((expense, index) => {
+        return index !== id;
+      });
     });
   };
 
@@ -16,6 +29,7 @@ function App() {
     <div className="App">
       <header className="App-header">Expense Tracker</header>
       <CreateArea onAdd={addNoteHandler} />
+      <Expenses onDelete={deleteNoteHandler} items={notes} />
     </div>
   );
 }

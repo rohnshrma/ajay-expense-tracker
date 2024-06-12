@@ -1,0 +1,14 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 1rem;
+  box-shadow: 0 0 4px 0 grey;
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}

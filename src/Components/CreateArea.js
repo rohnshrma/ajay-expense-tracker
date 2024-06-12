@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Card from "./uiElements/Card";
 
 const CreateArea = ({ onAdd }) => {
   const [name, setName] = useState("");
@@ -23,7 +24,7 @@ const CreateArea = ({ onAdd }) => {
   };
 
   return (
-    <div className="create-area">
+    <Card>
       <form onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor="name">Expense Name :</label>
@@ -45,7 +46,7 @@ const CreateArea = ({ onAdd }) => {
         </div>
         <button>Add Expense</button>
       </form>
-    </div>
+    </Card>
   );
 };
 
