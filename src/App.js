@@ -3,33 +3,41 @@ import "./App.css";
 import CreateArea from "./Components/CreateArea";
 
 import Expenses from "./Components/Expenses";
+import CategoryBar from "./Components/uiElements/CategoryBar";
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [expenses, setExpenses] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
-  const addNoteHandler = (noteObj) => {
-    console.log("noteObject=>", noteObj);
+  const addNoteHandler = (expObj) => {
+    console.log("noteObject=>", expObj);
 
-    setNotes((prevExpenses) => {
-      return [noteObj, ...prevExpenses];
+    setExpenses((prevExpenses) => {
+      return [expObj, ...prevExpenses];
     });
   };
 
   const deleteNoteHandler = (id) => {
     console.log("deleting expense with the id", id);
 
-    setNotes((prevExpenses) => {
+    setExpenses((prevExpenses) => {
       return prevExpenses.filter((expense, index) => {
         return index !== id;
       });
     });
   };
 
+  const categoryHandler = (category) => {
+    console.log(category);
+  };
+
   return (
     <div className="App">
       <header className="App-header">Expense Tracker</header>
+
       <CreateArea onAdd={addNoteHandler} />
-      <Expenses onDelete={deleteNoteHandler} items={notes} />
+      <CategoryBar onSelect={categoryHandler} />
+      <Expenses onDelete={deleteNoteHandler} items={expenses} />
     </div>
   );
 }

@@ -15,6 +15,7 @@ const Expenses = ({ items, onDelete }) => {
           id={index}
           name={expenseObj.name}
           amount={expenseObj.amount}
+          category={expenseObj.category}
           onDelete={onDelete}
         />
       ))
