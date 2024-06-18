@@ -28,7 +28,7 @@ function App() {
   };
 
   const categoryHandler = (category) => {
-    console.log(category);
+    setSelectedCategory(category);
   };
 
   return (
@@ -37,7 +37,14 @@ function App() {
 
       <CreateArea onAdd={addNoteHandler} />
       <CategoryBar onSelect={categoryHandler} />
-      <Expenses onDelete={deleteNoteHandler} items={expenses} />
+      <Expenses
+        onDelete={deleteNoteHandler}
+        items={
+          selectedCategory === "all"
+            ? expenses
+            : expenses.filter((exp) => exp.category === selectedCategory)
+        }
+      />
     </div>
   );
 }

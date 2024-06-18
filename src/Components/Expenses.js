@@ -3,6 +3,8 @@ import Expense from "./Expense";
 import Card from "./uiElements/Card";
 
 const Expenses = ({ items, onDelete }) => {
+  console.log("items", items);
+
   const content =
     items.length <= 0 ? (
       <Card>

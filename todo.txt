@@ -1,1 +1,8 @@
 rafce : for react functional components
+
+create two components:
+App.js | CreateArea.js
+
+inside of the createArea component return an html form having 3 field Name amount and category
+ create three states for each field name, amount and category
+ On the submission of the form, we need to send the data from the creator component to the app component
